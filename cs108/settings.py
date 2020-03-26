@@ -25,7 +25,7 @@ SECRET_KEY = '4-62!gqs*37c@*e(ydza+$@97@96w6c$#vhg$-^)s-9$^=fpz*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hello_world.apps.HelloWorldConfig',
+    'pages.app.PagesConfig', #new application!
 ]
 
 MIDDLEWARE = [
