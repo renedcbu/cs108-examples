@@ -1,0 +1,30 @@
+<!-- templates/show_all_profiles.html -->
+
+<h1><b>MiniFacebook</b></h1>
+<p>
+<h2><b>Showing all Profiles</b></h2>
+<p>
+
+<!-- scriptlet code to display the value of the variable 'all_quotes_list' 
+{{ all_quotes_list }}
+-->
+
+<table>
+    <colgroup>
+        <col span="1" style="width: 40%;">
+        <col span="1" style="width: 30%;">
+        <col span="1" style="width: 30%;">
+    </colgroup>
+    <tr>
+        <th>Name</th>
+        <th>Hometown</th>
+        <th>Image</th>
+    </tr>
+    {% for profile in show_all_profiles %}
+    <tr>
+        <td>{{profile.first_name}} {{profile.last_name}}</td>
+        <td>{{profile.city}}</td>
+        <td><img src={{profile.image_url}} style="max-width: 250;"></td>
+    </tr>
+    {% endfor %}
+</table>
