@@ -22,6 +22,23 @@ class Person(models.Model):
         # then, pick one at random, and return it
         i = random.randint(0, len(images) - 1)
         return images[i]
+    
+    # get all images for this person
+    def get_all_images(self):
+        """Return a QuerySet of all images for this person."""
+
+        # get all images of this person
+        images = Image.objects.filter(person=self.pk)
+        return images
+
+        # get all quotes for this person
+    def get_all_quotes(self):
+        """Return a QuerySet of all quotes for this person."""
+
+        # get all quotes of this person
+        quotes = Quote.objects.filter(person=self.pk)
+        return quotes
+
 
 class Quote(models.Model):
     """Encapsulate the idea of a quote (i.e., text)."""
