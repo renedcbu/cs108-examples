@@ -1,4 +1,5 @@
 from django.db import models
+import random
 
 # Create your models here.
 
@@ -10,6 +11,17 @@ class Person(models.Model):
     def __str__(self):
         """Return a string representation of this person."""
         return self.name
+
+    # get an image at random
+    def get_random_image(self):
+        """Return an image of this person, chosen at random."""
+
+        # get all images of this person
+        images = Image.objects.filter(person=self.pk)
+
+        # then, pick one at random, and return it
+        i = random.randint(0, len(images) - 1)
+        return images[i]
 
 class Quote(models.Model):
     """Encapsulate the idea of a quote (i.e., text)."""
