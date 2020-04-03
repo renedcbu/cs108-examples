@@ -3,11 +3,11 @@
 
 {% block content %}
 
-<h1><center>{{profile.first_name}} {{profile.last_name}}</center></h1>
+<h1><center>{{show_profile_page.first_name}} {{show_profile_page.last_name}}</center></h1>
 
-<img src="{{profile.image_url}}" style="width: 400;"><br>
-<b>Contact: </b>{{profile.email_adress}}<br>
-<b>Location: </b>{{profile.city}}
+<img src="{{show_profile_page.image_url}}" style="width: 400;"><br>
+<b>Contact: </b>{{show_profile_page.email_adress}}<br>
+<b>Location: </b>{{show_profile_page.city}}
 
 <p>
 <h3>Status Message</h3>
@@ -18,7 +18,7 @@
         <th>Message</th>
     </tr>
     <tr>
-    {% for status in profile.get_status_messages %}
+    {% for status in show_profile_page.get_status_messages %}
         <td>timestamp</td>
         <td>{{status.message}}</td>
         {% endfor %}

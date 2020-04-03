@@ -25,13 +25,13 @@
     {% for profile in show_all_profiles %}
     <tr>
         <td><center>
-            <a href="{% url 'profile' profile.pk %}">{{profile.first_name}} {{profile.last_name}}</a>
+            <a href="{% url 'show_profile_page' profile.pk %}">{{profile.first_name}} {{profile.last_name}}</a>
         </center></td>
         <td><center>
             {{profile.city}}
         </center></td>
         <td>
-            <a href="{% url 'profile' profile.pk %}"><img src={{profile.image_url}} style="max-width: 250;"></a>
+            <a href="{% url 'show_profile_page' profile.pk %}"><img src={{profile.image_url}} style="max-width: 250;"></a>
         </td>
     </tr>
     {% endfor %}

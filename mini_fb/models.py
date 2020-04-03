@@ -23,7 +23,7 @@ class Profile(models.Model):
 class StatusMessage(models.Model):
     """Model the data attributes of Facebook status message."""
 
-    timestamp = models.DateTimeField(auto_now_add=True)
+    #timestamp = models.DateTimeField(auto_now_add=True)
     message = models.TextField(blank=True)
     profile = models.ForeignKey('Profile', on_delete=models.CASCADE)
 
