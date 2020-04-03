@@ -12,6 +12,20 @@ class CreateProfileForm(forms.ModelForm):
     # ...
 
     class Meta:
-        """Associate this form with the Quote model."""
+        """Associate this form with the Profile model."""
         model = Profile
         fields = {'first_name', 'last_name', 'city', 'email_adress', 'image_url'}
+
+class UpdateProfileForm(forms.ModelForm):
+
+    class Meta:
+        """Associate this form with the Profile model."""
+        model = Profile
+        fields = {'city', 'email_adress', 'image_url'}
+
+class CreateStatusMessageForm(forms.ModelForm):
+
+    class Meta:
+        """Associate this form with the Profile model."""
+        model = StatusMessage
+        fields = {'message'}
