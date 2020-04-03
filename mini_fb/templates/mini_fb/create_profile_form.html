@@ -1,3 +1,26 @@
 <!-- templates/create_profile_form.html -->
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
 
 <h1>Here's the page !</h1>
+
+<form method="POST">
+{% csrf_token %}
+    <table>
+    {% for field in form %}
+    <tr>
+        <th>{{field.name}}</th>
+        <th>{{field}}</th>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td></td>
+        <td>
+            <input type="submit", name="Create profile" value="Create profile">
+        </td>
+    </tr>
+    </table>    
+</form>
+
+{% endblock %}

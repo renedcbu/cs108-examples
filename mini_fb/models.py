@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import * #reverse # to obtain a url from pattern name
 
 # Create your models here.
 
@@ -19,6 +20,10 @@ class Profile(models.Model):
     def get_status_messages(self):
         status_messages = StatusMessage.objects.filter(profile=self.pk)
         return status_messages
+    
+    def get_absolute_url(self):
+        """Return a URL to display this new quote"""
+        return reverse("show_profile_page", kwargs={"pk":self.pk})
 
 class StatusMessage(models.Model):
     """Model the data attributes of Facebook status message."""

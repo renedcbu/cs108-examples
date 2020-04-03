@@ -1,4 +1,4 @@
-# auotes/form.py
+# quotes/form.py
 
 from django import forms
 from .models import Quote
