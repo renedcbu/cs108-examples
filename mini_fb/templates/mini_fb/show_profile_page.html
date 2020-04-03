@@ -1,3 +1,28 @@
 <!-- templates/show_profile_page.html -->
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
 
 <h1><center>{{profile.first_name}} {{profile.last_name}}</center></h1>
+
+<img src="{{profile.image_url}}" style="width: 400;"><br>
+<b>Contact: </b>{{profile.email_adress}}<br>
+<b>Location: </b>{{profile.city}}
+
+<p>
+<h3>Status Message</h3>
+<p>
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Message</th>
+    </tr>
+    <tr>
+    {% for status in profile.get_status_messages %}
+        <td>timestamp</td>
+        <td>{{status.message}}</td>
+        {% endfor %}
+    </tr>
+</table>
+
+{% endblock %}

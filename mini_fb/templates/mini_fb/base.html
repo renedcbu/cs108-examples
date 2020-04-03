@@ -1,0 +1,17 @@
+<!-- mini_fb/base.html -->
+<html>
+    <head>
+        <title>Mini facebook</title>
+    </head>
+    <body>
+    <header>
+        <h1 style="background-color: darkcyan;"><center>Mini Facebook</center></h1>
+    </header>
+    <a href="{% url 'show_all_profiles' %}">My friends</a>
+
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+    </body>
+</html>

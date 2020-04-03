@@ -1,8 +1,10 @@
 <!-- templates/show_all_profiles.html -->
+{% extends 'mini_fb/base.html' %}
 
-<center><h1 style="background-color: darkcyan;"><b>MiniFacebook</b></h1></center>
+{% block content %}
+
 <p>
-<h2><b>Showing all Profiles</b></h2>
+<h3><b>My friends</b></h3>
 <p>
 
 <!-- scriptlet code to display the value of the variable 'all_quotes_list' 
@@ -22,9 +24,17 @@
     </tr>
     {% for profile in show_all_profiles %}
     <tr>
-        <td><center>{{profile.first_name}} {{profile.last_name}}</center></td>
-        <td><center>{{profile.city}}</center></td>
-        <td><img src={{profile.image_url}} style="max-width: 250;"></td>
+        <td><center>
+            <a href="{% url 'profile' profile.pk %}">{{profile.first_name}} {{profile.last_name}}</a>
+        </center></td>
+        <td><center>
+            {{profile.city}}
+        </center></td>
+        <td>
+            <a href="{% url 'profile' profile.pk %}"><img src={{profile.image_url}} style="max-width: 250;"></a>
+        </td>
     </tr>
     {% endfor %}
 </table>
+
+{% endblock %}
