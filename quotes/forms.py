@@ -1,7 +1,7 @@
 # quotes/form.py
 
 from django import forms
-from .models import Quote
+from .models import Quote, Image
 
 class CreateQuoteForm(forms.ModelForm):
     """A form to add new quotes to the database."""
@@ -18,3 +18,10 @@ class UpdateQuoteForm(forms.ModelForm):
         """Associate this form with the Quote model."""
         model = Quote
         fields = {'person', 'text',}
+
+class AddImageForm(forms.ModelForm):
+    """A form to collect an image from the user."""
+
+    class Meta:
+        model = Image
+        fields = {"image_file",}

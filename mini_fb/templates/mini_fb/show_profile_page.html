@@ -7,7 +7,9 @@
 <img src="{{show_profile_page.image_url}}" style="width: 400;"><br>
 <b>Contact: </b>{{show_profile_page.email_adress}}<br>
 <b>Location: </b>{{show_profile_page.city}}
-
+<p>
+    <button><a href="{% url 'show_news_feed' show_profile_page.pk %}" style="text-decoration: none;"><b>Check the News Feed</b></a></button>
+</p>
 <p>
 <h3>Status Message</h3>
 <p>
@@ -16,33 +18,72 @@
         <th>Time</th>
         <th>Message</th>
     </tr>
-    <tr>
     {% for status in show_profile_page.get_status_messages %}
-        <td>timestamp</td>
-        <td>{{status.message}}</td>
-        {% endfor %}
+
+    <tr>
+        <td>{{status.timestamp}}</td>
+        <td>{{status.message}}
+            <a href={% url 'delete_status' profile_pk=show_profile_page.pk status_pk=status.pk %}>delete</a>
+        </td>
+        
+    <tr>
+        <td></td>
+        <td>{% if status.image %}
+            <img src='{{status.image.url}}' style='max-width: 400;'>
+            {% endif %}
+        </td>
+    </tr>    
+    {% endfor %}
     </tr>
 </table>
 
-<form method="POST">
+<form method="POST" action="{% url 'post_status' show_profile_page.pk %}" enctype="multipart/form-data">
     {% csrf_token %}
         <table>
-        {% for field in form %}
+        {% for field in create_status_form %}
         <tr>
-            <th>{{field.name}}</th>
-            <th>{{field}}</th>
+            <td>{{field.name}}</td>
+            <td>{{field}}</td>
+            <td><button type="reset">Reset</button></td>
         </tr>
         {% endfor %}
         <tr>
             <td></td>
             <td>
-                <input type="submit", name="Send message" value="Send message">
+                <input type="submit", name="Update status" value="Update status">
             </td>
         </tr>
         </table>    
     </form>
 
 <p>
-    <a href="{% url 'update_profile' show_profile_page.pk %}">Edit this profile</a>
+    <button><a href="{% url 'update_profile' show_profile_page.pk %}" style="text-decoration: none;">Edit this profile</a></button>
 </p>
+
+<p>
+
+</p>
+
+<h3>My friends</h3>
+<table>
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>City</th>
+    </tr>
+    {% for profile in show_profile_page.get_friends %}
+    <tr>
+        <td><img src="{{profile.image_url}}" style="max-width: 100;"></td>
+        <td><a href="{% url 'show_profile_page' profile.pk %}">{{profile.first_name}} {{profile.last_name}}</a></td>
+        <td><center>{{profile.city}}</center></td>
+    </tr>
+    {% endfor %}
+</table>
+<p>
+<button><a href="{% url 'show_possible_friends' show_profile_page.pk %}" style="text-decoration: none;"><b>Other friends Suggestions</b></a></button>
+</p>
+
+
+
+
 {% endblock %}

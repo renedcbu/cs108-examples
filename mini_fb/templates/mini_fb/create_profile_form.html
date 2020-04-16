@@ -3,14 +3,14 @@
 
 {% block content %}
 
-<h1>Here's the page !</h1>
+<h2 style="color: white; background-color: rgb(10, 108, 199);">Create a new profile</h2>
 
 <form method="POST">
 {% csrf_token %}
     <table>
     {% for field in form %}
     <tr>
-        <th>{{field.name}}</th>
+        <th><center>{{field.label}}</center></th>
         <th>{{field}}</th>
     </tr>
     {% endfor %}

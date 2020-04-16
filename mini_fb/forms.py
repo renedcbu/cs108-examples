@@ -1,4 +1,4 @@
-from django import forms
+from django import * #forms
 from .models import * #Profile, StatusMessage
 
 class CreateProfileForm(forms.ModelForm):
@@ -8,13 +8,12 @@ class CreateProfileForm(forms.ModelForm):
     birth_date = forms.DateField(widget=forms.SelectDateWidget(years=range(2012,1920,-1),),)
     city = forms.CharField(label="City", required=True)
     email_adress = forms.CharField(label="Email Adress", required=True)
-    image_url = forms.URLField(label="Image urk", required=False)
-    # ...
+    image_url = forms.URLField(label="Image url", required=False)
 
     class Meta:
         """Associate this form with the Profile model."""
         model = Profile
-        fields = {'first_name', 'last_name', 'city', 'email_adress', 'image_url'}
+        fields = ['first_name', 'last_name', 'birth_date', 'city', 'email_adress', 'image_url']
 
 class UpdateProfileForm(forms.ModelForm):
 
@@ -25,7 +24,9 @@ class UpdateProfileForm(forms.ModelForm):
 
 class CreateStatusMessageForm(forms.ModelForm):
 
+    image = forms.ImageField(label="Image", required = False)
+
     class Meta:
-        """Associate this form with the Profile model."""
+        """Associate this form with the StatusMessage model."""
         model = StatusMessage
-        fields = {'message'}
+        fields = ['message', 'image',]

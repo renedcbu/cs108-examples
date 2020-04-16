@@ -1,17 +1,23 @@
 <!-- mini_fb/base.html -->
 <html>
+    <a name="top"></a>
     <head>
         <title>Mini facebook</title>
     </head>
-    <body>
+    <body style="background-color: whitesmoke;">
     <header>
-        <h1 style="background-color: darkcyan;"><center>Mini Facebook</center></h1>
-    <a href="{% url 'show_all_profiles' %}">My friends</a>
-    <a href="{% url 'create_profile' %}">Create a profile</a>
+        <h1 style="color: white; background-color: rgb(10, 108, 199);"><center>Mini Facebook</center></h1>
+    <button><a href="{% url 'show_all_profiles' %}" style="text-decoration: none;"><b>My friends</b></a></button>
+    <button><a href="{% url 'create_profile' %}" style="text-decoration: none;"><b>Create a profile</b></a></button>
     </header>
     <hr>
-
     {% block content %}
     {% endblock %}
     </body>
+    <footer>
+        <button style="position: absolute; left: 50%;"><a href="#top" style="text-decoration: none;">Back to top</a></button>
+
+        <hr>
+        <i>Created by René de Champs</i></footer>
+
 </html>
