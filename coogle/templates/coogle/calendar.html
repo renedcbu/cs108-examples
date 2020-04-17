@@ -1,0 +1,23 @@
+<!-- templates/calendar.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+
+<table>
+    {% for period in calendar.get_months %}
+    <tr>{{period.start_month}}</tr>
+    <tr>{{period}}</tr>
+    {% endfor %}
+</table>
+{{Harvest.get_months}}
+{{harvest.get_months}}
+{{calendar.get_months}}
+{{Harvest.get_MONTHS_display}}
+{{harvest.get_MONTHS_display}}
+{{calendar.get_MONTHS_display}}
+
+
+
+
+
+
+{% endblock %}

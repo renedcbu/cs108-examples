@@ -1,0 +1,24 @@
+<!-- templates/all_ingredients.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+<h1>Here is a list of all the ingredients I know! </h1>
+<h3>Don't hesitate to feed me more knowledge :</h3>
+
+<table>
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Decsription</th>
+    </tr>
+    {% for ing in all_ingredients%}
+    <tr>
+        <td><img src="{{ing.image_url}}" style="max-width: 100;"></td>
+        <td style="padding-left: 4px; padding-right: 4px;">{{ing.name}}</td>
+        <td style="padding-left: 4px; padding-right: 4px;">{{ing.ing_type}}</td>
+        <td style="padding-left: 4px;">{{ing.description}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

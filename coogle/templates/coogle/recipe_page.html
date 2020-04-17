@@ -1,0 +1,40 @@
+<!-- templates/recipe_page.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+
+<button><a href="{% url 'all_recipes' %}" style="text-decoration: none;"><b>Back to the Recipes page</b></a></button>
+
+
+<p></p>
+<table>
+    <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Instructions</th>
+    </tr>
+    <tr>
+        <td><img src="{{recipe_page.image_url}}" style="max-width: 300;"></td>
+        <td>{{recipe_page.name}}</td>
+        <td>{{recipe_page.description}}</td>
+        <td>{{recipe_page.instructions}}</td>
+    </tr>
+</table>
+<p></p>
+<table>
+    <tr>
+        <th>Ingredients</th>
+        <th>Description</th>
+    </tr>
+    {% for ing in recipe_page.get_ingredients%}
+    <tr>
+        <td><img src={{ing.image_url}} style="max-width: 100;"></td>
+        <td>{{ing.name}}</td>
+        <td>{{ing.description}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+{% endblock %}

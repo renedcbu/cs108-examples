@@ -1,0 +1,24 @@
+<!-- templates/ingredient_page.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+
+<button><a href="{% url 'all_ingredients' %}" style="text-decoration: none;"><b>Back to the Ingredients page</i></b></a></button>
+
+
+<p></p>
+<table>
+    <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><img src="{{ingredient_page.image_url}}" style="max-width: 300;"</td>
+        <td>{{ingredient_page.name}}</td>
+        <td>{{ingredient_page.ing_type}}</td>
+        <td>{{ingredient_page.description}}</td>
+    </tr>
+</table>
+
+{% endblock %}
