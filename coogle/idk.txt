@@ -1,0 +1,69 @@
+#scrap
+
+
+
+period = [start_month]
+
+    if start_month < end_month:
+        for i in range(12):
+            start_month = start_month + 1
+            period.append(start_month)
+            if start_month == end_month:
+                break
+    
+    elif start_month > end_month:
+        if start_month == 12:
+            start_month = 1
+            period.append(start_month)
+            if start_month != end_month:
+                for i in range(12):
+                    start_month += 1
+                    period.append(start_month)
+                    if start_month == end_month:
+                        break
+        
+        else:
+            for i in range(12):
+                start_month = start_month + 1
+                period.append(start_month)
+                if start_month == 12:
+                    start_month = 1
+                    period.append(start_month)
+                if start_month == end_month:
+                    break
+
+
+
+
+
+
+
+
+template random
+home
+<h1>{{random_recipe.get_random_recipe}}</h1>
+<h1>{{random_recipe.get_random_recipe.name}}</h1>
+<h1>{{random_recipe.get_random_recipe.description}}</h1>
+
+
+
+
+
+
+
+
+CALENDAR MONTH P MONTH::::
+
+in view:
+
+    def get_context_data(self, **kwargs):
+        '''Return the context data (a dictionary) to be used in the template.'''
+
+        # obtain the default context data (a dictionary) from the superclass; 
+        # this will include the Profile record for this page view
+        context = super(ShowCalendarMonthPageView, self).get_context_data(**kwargs)
+        # create a new CreateStatusMessageForm, and add it into the context dictionary
+        month = Ingredient.objects.get(pk=self.kwargs['month_pk'])
+        context['month'] = month
+        # return this context dictionary
+        return context

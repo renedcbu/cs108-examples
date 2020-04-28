@@ -1,26 +1,48 @@
-<!-- coogle/base.html -->
+<!-- templates/base.html -->
 
 <html>
-    <a name="top"></a>
-    <head>
-        <title>Coogle</title>
-    </head>
-    <body style="background-color: whitesmoke;">
-    <header>
-        <h1 style="color: white; background-color: rgb(240, 187, 42);"><center>Coogle</center></h1>
-    <!--
-        <button><a href="{% url 'show_all_profiles' %}" style="text-decoration: none;"><b>My friends</b></a></button>
-    <button><a href="{% url 'create_profile' %}" style="text-decoration: none;"><b>Create a profile</b></a></button>
-    -->
-    </header>
+  <head>
+    <style>
+      .top-left {
+        position: absolute;
+        top: 1%;
+        left: 18%;
+      }
+
+      .top-right {
+        position: absolute;
+        top: 2%;
+        right: 20%;
+      }
+      
+      .centered {
+        position: absolute;
+        top: 11%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+      }
+      .center {
+        position: absolute;
+        top: 14%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+    <img src="../media/kitchenT2.jpg" style="width: 100%;">
+  </head>
+  <body>
+
+    <div class="top-left"><h2><b><a href="{% url 'all_ingredients' %}" style="color: rgba(0, 0, 0.600); text-decoration: none; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Pantry</b></a></h2></div>
+    <div class="top-right"><h2><b><a href="{% url 'all_recipes' %}" style="color: rgba(0, 0, 0.600); text-decoration: none; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Recipes</b></a></h2></div>
+    <div class="centered"><h1><a href="{% url 'home' %}" style="color: rgba(0, 0, 0.650); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-decoration: none;">Coogle</h1></a><br></div>
+    <div class="center"><i><a href="{% url 'calendar' %}" style="color: rgba(0, 0, 0.650); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-decoration: none;">Calendar</i></a></div>
+
+  {% block content %}
+  {% endblock %}
+  </body>
+  <footer>
+    <button style="position: absolute; left: 47.5%;"><a href="#top" style="text-decoration: none; color: rgba(137, 74, 39)">Back to top</a></button>
     <hr>
-    {% block content %}
-    {% endblock %}
-    </body>
-    <footer>
-        <button style="position: absolute; left: 50%;"><a href="#top" style="text-decoration: none;">Back to top</a></button>
-
-        <hr>
-        <i>Created by René de Champs</i></footer>
-
-</html>
+    <i>Created by René de Champs</i>
+  </footer>
+</html> 

@@ -1,24 +1,23 @@
 <!-- templates/all_ingredients.html -->
 {% extends 'coogle/base.html' %}
 {% block content %}
-<h1>Here is a list of all the ingredients I know! </h1>
-<h3>Don't hesitate to feed me more knowledge :</h3>
 
-<table>
-    <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Decsription</th>
-    </tr>
-    {% for ing in all_ingredients%}
-    <tr>
-        <td><img src="{{ing.image_url}}" style="max-width: 100;"></td>
-        <td style="padding-left: 4px; padding-right: 4px;">{{ing.name}}</td>
-        <td style="padding-left: 4px; padding-right: 4px;">{{ing.ing_type}}</td>
-        <td style="padding-left: 4px;">{{ing.description}}</td>
-    </tr>
-    {% endfor %}
-</table>
+<html style="background-color: rgb(219, 219, 219);">
+    <center><h1 style="color: rgba(0, 0, 0.550)">Welcome to my pantry! </h1>
+    <p style="color: rgba(0, 0, 0.750)"><i>Here is a list of all the ingredients I know!<br> Most ingredients are linked to some recipes so don't hesitate to click on any of them!</i></p>
+    <a href="{% url 'create_ingredient' %}" style="text-decoration: none; color: rgba(137, 74, 39);"><b>Feed me more knowledge</i></b></a></center>
+
+    <table style="padding-left: 50;">
+        {% for ing in all_ingredients%}
+        <tr>
+            <td><img src="{{ing.image_url}}" style="max-width: 100; padding-right: 15; padding-bottom: 5;"></td>
+            <td style="padding-left: 4px; padding-right: 4px;"><a href="{% url 'ingredient_page' ing.pk %}" style="color: rgba(137, 74, 39); text-decoration: none;">{{ing.name}}</td></a>
+            <td style="padding-left: 4px; padding-right: 4px;" color: rgba(0, 0, 0.750)>{{ing.ing_type}}</td>
+            <td style="padding: 10;" color: rgba(0, 0, 0.750)>{{ing.description}}</td>
+            <td><a href={% url 'delete_ingredient' ingredient_pk=ing.pk %} style="color: rgba(0, 0, 0.750); text-decoration: none;">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</html>
 
 {% endblock %}

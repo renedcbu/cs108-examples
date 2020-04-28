@@ -1,0 +1,48 @@
+<!-- templates/create_ingredient_form.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+
+<html style="background-color: rgb(219, 219, 219);">
+    <head>
+        <style>
+            .container {
+                position: relative;
+                text-align: center;
+            }
+            .center {
+              position: absolute;
+              top: 30%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              max-width: 500px;
+            }
+    
+        </style>
+    </head>
+    <div class="container">
+        <img src="../media/shelfFI.png" style="width: 100%;">
+        <div class="center">
+            <p style="padding-bottom: 40;"></p>
+        <form method="POST">
+        {% csrf_token %}
+            <table>
+            {% for field in form %}
+            <tr>
+                <th style="padding-bottom: 55;">{{field.label}}   </th>
+                <th style="padding-bottom: 55;">{{field}}</th>
+            </tr>
+
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit", name="Create ingredient" value="Create ingredient">
+                </td>
+            </tr>
+            </table>   
+        </form>
+        </div>
+    </div> 
+</html>
+
+{% endblock %}

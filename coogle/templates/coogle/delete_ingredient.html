@@ -1,0 +1,41 @@
+<!-- templates/delete_ingredient.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+
+<html style="background-color: rgb(219, 219, 219);">
+    <h2 style="color: rgba(0, 0, 0, 0.750)"><center>Are you sure you want to put {{ingredient.name}} to trash?</center></h2>
+    <!--
+        <center><img src="../media/recycle.png"></center>
+    -->
+    <center>
+    <table>
+        <tr>
+            <th></th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><img src="{{ingredient.image_url}}" style="max-width: 300;"</td>
+            <td style="padding: 15;">{{ingredient.ing_type}}</td>
+            <td>{{ingredient.description}}</td>
+        </tr>
+    </table>
+    </center>
+    <p></p>
+    <center>
+    <table>
+        <tr>
+            <td style="padding: 15;"><form method="POST">
+                {% csrf_token %}
+                <input type="submit" name="yes" value="yes">
+            </form></td>
+            <td style="padding: 15;"><form method="GET" action="{% url 'ingredient_page' ingredient.pk %}">
+                {% csrf_token %}
+                <input type="submit" name="no" value="no">
+            </form></td>
+        </tr>
+    </table>
+    </center>
+</html>
+
+{% endblock %}

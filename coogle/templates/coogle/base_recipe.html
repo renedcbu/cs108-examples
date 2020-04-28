@@ -1,0 +1,67 @@
+<!-- coogle/base_recipe.html -->
+
+<html style="background-image: linear-gradient(rgb(222, 222, 223), rgb(88, 32, 25));">
+  <head>
+  <a name="top"></a>
+  <style>
+    .container {
+        position: relative;
+        text-align: center;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 1%;
+      left: 18%;
+    }
+    
+    .top-right {
+      position: absolute;
+      top: 2%;
+      right: 20%;
+    }
+
+    .center {
+      position: absolute;
+      top: 35%;
+      left: 28%;
+      transform: translate(-50%, -50%);
+      max-width: 550px;
+    }
+
+    .centered {
+      position: absolute;
+      top: 9.5%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+    }
+    .centere {
+        position: absolute;
+        top: 14%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+      }
+  </style>
+
+  <img src="../media/kitchenT2.jpg" style="width: 100%;">
+  
+  <div class="top-left"><h2><b><a href="{% url 'all_ingredients' %}" style="color: rgba(0, 0, 0, 0.600); text-decoration: none; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Pantry</b></a></h2></div>
+  <div class="top-right"><h2><b><a href="{% url 'all_recipes' %}" style="color: rgba(0, 0, 0, 0.600); text-decoration: none; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Recipes</b></a></h2></div>
+  <div class="centered"><h1><a href="{% url 'home' %}" style="color: rgba(0, 0, 0, 0.650); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-decoration: none;">Coogle</h1></a></div>
+  <div class="centere"><i><a href="{% url 'calendar' %}" style="color: rgba(0, 0, 0.650); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-decoration: none;">Calendar</i></a></div>
+  
+  </head>
+  <body>
+    <div class="container">
+      <img src="../media/cookbook.png" style="width: 100%;">
+      <div class="center">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+  <footer>
+    <button style="position: absolute; left: 50%;"><a href="#top" style="text-decoration: none; color: rgba(137, 74, 39)">Back to top</a></button>
+    <i>Created by René de Champs</i>
+  </footer>
+</html>

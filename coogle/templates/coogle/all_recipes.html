@@ -1,44 +1,21 @@
 <!-- templates/all_recipes.html -->
-{% extends 'coogle/base.html' %}
+{% extends 'coogle/base_recipe.html' %}
 {% block content %}
-<h1>Here is a list of all the Recipes I know! </h1>
-<h3>Don't hesitate to feed me more knowledge :</h3>
 
-<table>
-    <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Ingredients</th>
-        <th>Decsription</th>
-    </tr>
-    {% for rec in all_recipes%}
-    <tr>
-        <td><img src="{{rec.image_url}}" style="max-width: 100;"></td>
-        <td style="padding-left: 4px; padding-right: 4px;">{{rec.name}}</td>
-        <td style="padding-left: 4px; padding-right: 4px;">{{rec.get_ingredients}}</td>
-        <td style="padding-left: 4px;">{{rec.description}}</td>
-    </tr>
-    {% endfor %}
-</table>
-
-<table>
-    <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Ingredients</th>
-        <th>Decsription</th>
-    </tr>
-    {% for rec in all_recipes%}
-    <tr>
-        <td><img src="{{rec.image_url}}" style="max-width: 100;"></td>
-        <td style="padding-left: 4px; padding-right: 4px;">{{rec.name}}</td>
-        {% for ing in recipe.get_ingredients %}
-        <td style="padding-left: 4px; padding-right: 4px;">{{ing.name}}</td>
+<html style="background-color: rgb(219, 219, 219);">
+    <h1>The Sacred Cookbook</h1>
+    <h5><i>“... food is not simply organic fuel to keep body and soul together, it is a perishable art that must be savoured at the peak of perfection.”</i><br>― E.A. Bucchianeri</h5>
+    <h4 style="padding-bottom: 10;"><a href="{% url 'create_recipe' %}" style="text-decoration: none ; color: rgba(137, 74, 39);">Write a new recipe</a></h4>
+    <table>
+        {% for rec in all_recipes %}
+        <tr>
+            <td><img src="{{rec.image_url}}" style="max-width: 100;"></td>
+            <td style="padding-left: 4px; padding-right: 4px;"><center><a href="{% url 'recipe_page' rec.pk %}" style="text-decoration: none; color: rgba(137, 74, 39); padding-left: 5; padding-right: 5;">{{rec.name}}</a></center></td>
+            <td style="padding: 5; padding-right: 25;">{{rec.description}}</td>
+            <td><a href={% url 'delete_recipe' recipe_pk=rec.pk %} style="text-decoration: none; color: rgba(0, 0, 0, 0.750)">delete</a></td>
+        </tr>
         {% endfor %}
-        <td style="padding-left: 4px;">{{rec.description}}</td>
-    </tr>
-    {% endfor %}
-</table>
-
+    </table>
+</html>
 
 {% endblock %}

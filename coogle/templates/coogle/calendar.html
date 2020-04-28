@@ -2,22 +2,25 @@
 {% extends 'coogle/base.html' %}
 {% block content %}
 
-<table>
-    {% for period in calendar.get_months %}
-    <tr>{{period.start_month}}</tr>
-    <tr>{{period}}</tr>
-    {% endfor %}
-</table>
-{{Harvest.get_months}}
-{{harvest.get_months}}
-{{calendar.get_months}}
-{{Harvest.get_MONTHS_display}}
-{{harvest.get_MONTHS_display}}
-{{calendar.get_MONTHS_display}}
+<html style="background-color: rgb(219, 219, 219);">
+    <h1 style="color: rgba(0, 0, 0, 0.750)"><center>Welcome to the calendar page!</center></h1>
+    <h3 style="color: rgba(0, 0, 0, 0.750)"><center><i>Here you can check which ingredients are seasonally accessible by month</i></center></h3>
 
+    <center style="padding: 15;">
+        <a href="{% url 'calendar_1' %}" style="color: black; text-decoration: none;">January</a><p>
+        <a href="{% url 'calendar_2' %}" style="color: black; text-decoration: none;">February</a><p>
+        <a href="{% url 'calendar_3' %}" style="color: black; text-decoration: none;">March</a><p>
+        <a href="{% url 'calendar_4' %}" style="color: black; text-decoration: none;">April</a><p>
+        <a href="{% url 'calendar_5' %}" style="color: black; text-decoration: none;">May</a><p>
+        <a href="{% url 'calendar_6' %}" style="color: black; text-decoration: none;">June</a><p>
+        <a href="{% url 'calendar_7' %}" style="color: black; text-decoration: none;">July</a><p>
+        <a href="{% url 'calendar_8' %}" style="color: black; text-decoration: none;">August</a><p>
+        <a href="{% url 'calendar_9' %}" style="color: black; text-decoration: none;">September</a><p>
+        <a href="{% url 'calendar_10' %}" style="color: black; text-decoration: none;">October</a><p>
+        <a href="{% url 'calendar_11' %}" style="color: black; text-decoration: none;">November</a><p>
+        <a href="{% url 'calendar_12' %}" style="color: black; text-decoration: none;">December</a>
+    </center>
 
-
-
-
+</html>
 
 {% endblock %}

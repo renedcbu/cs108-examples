@@ -1,0 +1,34 @@
+<!-- templates/delete_recipe.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+
+<html style="background-color: rgb(219, 219, 219);">
+    <h2 style="color: rgba(0, 0, 0, 0.750)"><center>Are you sure you want to delete {{recipe.name}}?</center></h2>
+
+    <center>
+    <table>
+        <tr>
+            <td><img src="{{recipe.image_url}}" style="max-width: 300;"</td>
+            <td style="padding: 15;">{{recipe.description}}</td>
+        </tr>
+    </table>
+    </center>
+    <p></p>
+    <center><i>{{recipe.instructions}}</i></center>
+    <center>
+    <table>
+        <tr>
+            <td style="padding: 15;"><form method="POST">
+                {% csrf_token %}
+                <input type="submit" name="yes" value="yes">
+            </form></td>
+            <td style="padding: 15;"><form method="GET" action="{% url 'all_recipes' %}">
+                {% csrf_token %}
+                <input type="submit" name="no" value="no">
+            </form></td>
+        </tr>
+    </table>
+    </center>
+</html>
+
+{% endblock %}

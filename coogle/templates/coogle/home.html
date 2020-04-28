@@ -1,0 +1,63 @@
+<!-- templates/home.html -->
+{% extends 'coogle/base2.html' %}
+{% block content %}
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .container {
+        position: relative;
+        text-align: center;
+      }
+
+      .top-left {
+        position: absolute;
+        top: 15%;
+        left: 17%;
+      }
+
+      .top-right {
+        position: absolute;
+        top: 15%;
+        right: 18%;
+      }
+
+      .centered {
+        position: absolute;
+        top: 13%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+      }
+
+      .center {
+        position: absolute;
+        top: 23%;
+        left: 49%;
+        transform: translate(-50%, -20%);
+        width: 170px;
+      }
+      .centere {
+        position: absolute;
+        top: 40%;
+        left: 49%;
+        transform: translate(-50%, -20%);
+        width: 170px;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="container">
+    <img src="../media/kitchen.jpg" alt="Snow" style="width:100%;">
+    <div class="top-left"><h2><b><a href="{% url 'all_ingredients' %}" style="color: rgba(0, 0, 0, 0.650); text-decoration: none; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Pantry</b></a></h2></div>
+    <div class="top-right"><h2><b><a href="{% url 'all_recipes' %}" style="color: rgba(0, 0, 0, 0.650); text-decoration: none; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Recipes</b></a></h2></div>
+    <div class="centered">
+      <h1 style="color: rgba(0, 0, 0, 0.750); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Welcome to Coogle</h1>
+    </div>
+    <div class="center" style="color: rgba(0, 0, 0, 0.550); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Here, you'll be able to experience some tasty recipes made out of seasonal.. or not, ingredients! Everything is accesible through this site. Enjoyyy!</div>
+    <div class="centere" style="color: rgba(0, 0, 0, 0.550)"><i>Don't know where to start? Try yourself at <br>~</i><a href="{% url 'recipe_page' random_recipe.pk %}" style="color: rgba(0, 0, 0, 0.550); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-decoration: none;"><b>random recipe</b></a>~</div>
+  </div>
+  </body>
+</html> 
+
+{% endblock %}

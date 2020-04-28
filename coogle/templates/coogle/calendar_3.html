@@ -1,0 +1,61 @@
+<!-- templates/calendar_1.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+
+<html style="background-color: rgb(219, 219, 219);">
+    <h1>Here's a list of all the ingredients that you can naturally find or harvest in March!</h1>
+
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <th>Type</th>
+            <th>Season End</th>
+        </tr>
+        {% for period in calendar_month %}
+        {% if period.start_month < period.end_month and period.start_month <= '3' and period.end_month >= '3' %}
+        <tr>
+            <td><img src="{{period.ingredients.image_url}}" style="max-width: 300;"></td>
+            <td style="padding: 10;"><a href="{% url 'ingredient_page' period.pk %}" style="color: black; text-decoration: none;"><b>{{period.ingredients}}</b></a></td>
+            <td style="padding: 15;">{{period.ingredients.ing_type}}</td>
+            <td>
+                <center>{% if period.end_month == '1' %}January{% endif %}</center>
+                <center>{% if period.end_month == '2' %}Ferbuary{% endif %}</center>
+                <center>{% if period.end_month == '3' %}Marche{% endif %}</center>
+                <center>{% if period.end_month == '4' %}April{% endif %}</center>
+                <center>{% if period.end_month == '5' %}May{% endif %}</center>
+                <center>{% if period.end_month == '6' %}June{% endif %}</center>
+                <center>{% if period.end_month == '7' %}July{% endif %}</center>
+                <center>{% if period.end_month == '8' %}August{% endif %}</center>
+                <center>{% if period.end_month == '9' %}September{% endif %}</center>
+                <center>{% if period.end_month == '10' %}October{% endif %}</center>
+                <center>{% if period.end_month == '11' %}November{% endif %}</center>
+                <center>{% if period.end_month == '12' %}December{% endif %}</center>
+            </td>
+        </tr>
+        {% elif period.start_month > period.end_month and period.start_month > '3' and period.end_month >= '3' %}
+        <tr>
+            <td><img src="{{period.ingredients.image_url}}" style="max-width: 300;"></td>
+            <td style="padding: 10;"><a href="{% url 'ingredient_page' period.pk %}" style="color: black; text-decoration: none;"><b>{{period.ingredients}}</b></a></td>
+            <td style="padding: 15;">{{period.ingredients.ing_type}}</td>
+            <td>
+                <center>{% if period.end_month == '1' %}January{% endif %}</center>
+                <center>{% if period.end_month == '2' %}Ferbuary{% endif %}</center>
+                <center>{% if period.end_month == '3' %}Marche{% endif %}</center>
+                <center>{% if period.end_month == '4' %}April{% endif %}</center>
+                <center>{% if period.end_month == '5' %}May{% endif %}</center>
+                <center>{% if period.end_month == '6' %}June{% endif %}</center>
+                <center>{% if period.end_month == '7' %}July{% endif %}</center>
+                <center>{% if period.end_month == '8' %}August{% endif %}</center>
+                <center>{% if period.end_month == '9' %}September{% endif %}</center>
+                <center>{% if period.end_month == '10' %}October{% endif %}</center>
+                <center>{% if period.end_month == '11' %}November{% endif %}</center>
+                <center>{% if period.end_month == '12' %}December{% endif %}</center>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</html>
+
+{% endblock %}

@@ -2,23 +2,34 @@
 {% extends 'coogle/base.html' %}
 {% block content %}
 
-<button><a href="{% url 'all_ingredients' %}" style="text-decoration: none;"><b>Back to the Ingredients page</i></b></a></button>
+<html style="background-color: rgb(219, 219, 219);">
+    <h1><center>{{ingredient_page.name}}</center></h1>
+    <h3><center><i>{{ingredient_page.ing_type}}</ingredient_page></i></center></h3>
+    <p></p>
+    <table style="table-layout: auto; padding: 10;">
+        <tr>
+            <td><img src="{{ingredient_page.image_url}}" style="max-width: 500;"</td>
+            <td style="padding: 50;">{{ingredient_page.description}}</td>
+            <td>
+                <a href="{% url 'update_ingredient' ingredient_page.pk %}" style="text-decoration: none; color: rgba(0, 0, 0, 0.650)"><button style="padding: 10;"><b>Update data</i></b></button></a>
+            </td>
+        </tr>
+    </table>
+    <p></p>
 
+    <h1 style="color: rgba(0, 0, 0, 0.750)">You can find {{ingredient_page.name}} in:</h1>
+    <p></p>
 
-<p></p>
-<table>
-    <tr>
-        <th>Picture</th>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td><img src="{{ingredient_page.image_url}}" style="max-width: 300;"</td>
-        <td>{{ingredient_page.name}}</td>
-        <td>{{ingredient_page.ing_type}}</td>
-        <td>{{ingredient_page.description}}</td>
-    </tr>
-</table>
+    <center>
+    <table>
+        {% for recp in ingredient_page.get_recipes %}
+        <tr>
+            <td><img src="{{recp.image_url}}" style="max-width: 150"></td>
+            <td><a href="{% url 'recipe_page' recp.pk %}" style="text-decoration: none; color: rgba(0, 0, 0, 0.650)">{{recp.name}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+</html>
 
 {% endblock %}

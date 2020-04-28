@@ -1,0 +1,36 @@
+<!-- templates/update_recipe_form.html -->
+{% extends 'coogle/base.html' %}
+{% block content %}
+
+<html style="background-color: rgb(219, 219, 219);">
+    <h2><center>Update {{recipe.name}}'s data:</center></h2>
+
+    <table>
+        <tr>
+            <td><center><img src="{{recipe.image_url}}" style="max-width: 500;"</center></td>
+            <td>{{recipe.description}}<p><i>{{recipe.instructions}}</i></p></td>
+        </tr>
+    </table>
+
+    <center>
+    <form method="POST">
+    {% csrf_token %}
+        <table>
+        {% for field in form %}
+        <tr>
+            <th>{{field.label}}</th>
+            <th>{{field}}</th>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit", name="Update data" value="Update data">
+            </td>
+        </tr>
+        </table>    
+    </form>
+    </center>
+</html>
+
+{% endblock %}
