@@ -188,7 +188,7 @@ class UpdateHarvestView(UpdateView):
 
     def get_success_url(self):
         ingredient_pk = self.kwargs['pk']
-        return reverse('recipe_page', kwargs={'pk':ingredient_pk})
+        return reverse('harvest_page', kwargs={'pk':ingredient_pk})
 
 class DeleteIngredientView(DeleteView):
     """A view to delete an ingredient page."""
