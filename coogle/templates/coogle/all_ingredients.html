@@ -6,7 +6,6 @@
     <center><h1 style="color: rgba(0, 0, 0.550)">Welcome to my pantry! </h1>
     <p style="color: rgba(0, 0, 0.750)"><i>Here is a list of all the ingredients I know!<br> Most ingredients are linked to some recipes so don't hesitate to click on any of them!</i></p>
     <a href="{% url 'create_ingredient' %}" style="text-decoration: none; color: rgba(137, 74, 39);"><b>Feed me more knowledge</i></b></a></center>
-
     <table style="padding-left: 50;">
         {% for ing in all_ingredients%}
         <tr>

@@ -10,7 +10,7 @@
     <table style="table-layout: auto; padding: 10;">
         <tr>
             <td><img src="{{harvest_page.ingredients.image_url}}" style="max-width: 500;"></td>
-            <td style="padding: 80;"> {{harvest_page.ingredients.name}} can be found between 
+            <td style="padding: 80;"> {{harvest_page.ingredients.name}} can be found between <i>
                 {% if harvest_page.start_month == '1' %}January{% endif %}
                 {% if harvest_page.start_month == '2' %}Ferbuary{% endif %}
                 {% if harvest_page.start_month == '3' %}Marche{% endif %}
@@ -22,8 +22,8 @@
                 {% if harvest_page.start_month == '9' %}September{% endif %}
                 {% if harvest_page.start_month == '10' %}October{% endif %}
                 {% if harvest_page.start_month == '11' %}November{% endif %}
-                {% if harvest_page.start_month == '12' %}December{% endif %}
-                and
+                {% if harvest_page.start_month == '12' %}December{% endif %} </i>
+                and <i>
                 {% if harvest_page.end_month == '1' %}January{% endif %}
                 {% if harvest_page.end_month == '2' %}Ferbuary{% endif %}
                 {% if harvest_page.end_month == '3' %}Marche{% endif %}
@@ -35,7 +35,7 @@
                 {% if harvest_page.end_month == '9' %}September{% endif %}
                 {% if harvest_page.end_month == '10' %}October{% endif %}
                 {% if harvest_page.end_month == '11' %}November{% endif %}
-                {% if harvest_page.end_month == '12' %}December{% endif %}
+                {% if harvest_page.end_month == '12' %}December{% endif %} </i>
                 <p></p>
                 {{harvest_page.comment}}
                 </td>

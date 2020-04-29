@@ -9,7 +9,10 @@
     <table style="table-layout: auto; padding: 10;">
         <tr>
             <td><img src="{{ingredient_page.image_url}}" style="max-width: 500;"</td>
-            <td style="padding: 50;">{{ingredient_page.description}}</td>
+            <td style="padding: 50;">
+                {{ingredient_page.description}}<p></p>
+                <center><a href="{% url 'harvest_page' ingredient_page.pk %}" style="text-decoration: none; color: black;"><b><i>Harvest information</i></b></a></center>
+            </td>
             <td>
                 <a href="{% url 'update_ingredient' ingredient_page.pk %}" style="text-decoration: none; color: rgba(0, 0, 0, 0.650)"><button style="padding: 10;"><b>Update data</i></b></button></a>
             </td>

@@ -56,6 +56,10 @@ class Recipe(models.Model):
         recipes = Recipe.objects.all()
         i = random.randint(0, len(recipes) - 1)
         return recipes[i]
+        
+    def get_absolute_url(self):
+        """Return a URL to display this new recipe"""
+        return reverse("recipe_page", kwargs={"pk":self.pk})
 
 
 class Harvest(models.Model):
@@ -70,3 +74,7 @@ class Harvest(models.Model):
     def  __str__(self):
         """Return a string representation of this object."""
         return '%s' % (self.ingredients)
+
+    def get_absolute_url(self):
+        """Return a URL to display this new harvest data"""
+        return reverse("harvest_page", kwargs={"pk":self.pk})

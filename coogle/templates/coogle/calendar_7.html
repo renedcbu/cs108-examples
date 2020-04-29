@@ -3,6 +3,7 @@
 {% block content %}
 
 <html style="background-color: rgb(219, 219, 219);">
+    <center>
     <h1>Here's a list of all the ingredients that you can naturally find or harvest in July!</h1>
 
     <table>
@@ -16,7 +17,7 @@
         {% if period.start_month < period.end_month and period.start_month <= '7' and period.end_month >= '7' %}
         <tr>
             <td><img src="{{period.ingredients.image_url}}" style="max-width: 300;"></td>
-            <td style="padding: 10;"><a href="{% url 'ingredient_page' period.pk %}" style="color: black; text-decoration: none;"><b>{{period.ingredients}}</b></a></td>
+            <td style="padding: 10;"><a href="{% url 'harvest_page' period.pk %}" style="color: black; text-decoration: none;"><b>{{period.ingredients}}</b></a></td>
             <td style="padding: 15;">{{period.ingredients.ing_type}}</td>
             <td>
                 <center>{% if period.end_month == '1' %}January{% endif %}</center>
@@ -36,7 +37,7 @@
         {% elif period.start_month > period.end_month and period.start_month > '7' and period.end_month >= '7' %}
         <tr>
             <td><img src="{{period.ingredients.image_url}}" style="max-width: 300;"></td>
-            <td style="padding: 10;"><a href="{% url 'ingredient_page' period.pk %}" style="color: black; text-decoration: none;"><b>{{period.ingredients}}</b></a></td>
+            <td style="padding: 10;"><a href="{% url 'harvest_page' period.pk %}" style="color: black; text-decoration: none;"><b>{{period.ingredients}}</b></a></td>
             <td style="padding: 15;">{{period.ingredients.ing_type}}</td>
             <td>
                 <center>{% if period.end_month == '1' %}January{% endif %}</center>
@@ -56,6 +57,7 @@
         {% endif %}
         {% endfor %}
     </table>
+    </center>
 </html>
 
 {% endblock %}
